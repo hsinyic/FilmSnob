@@ -1,5 +1,5 @@
 
-function Add() {
+function Add({ addMovie, typeMovie }) {
     return React.createElement(
         "div",
         { className: "add" },
@@ -8,10 +8,12 @@ function Add() {
             { "for": "name" },
             "Add a movie"
         ),
-        React.createElement("input", { type: "text", id: "name", name: "name", requiredminlength: "4", maxlength: "8", size: "10" }),
-        React.createElement("input", { className: "submit", type: "submit", value: "Send Request" })
+        React.createElement("input", { type: "text", id: "name", name: "name", requiredminlength: "4", maxlength: "8", size: "10", onChange: e => {
+                typeMovie(e);
+            } }),
+        React.createElement("input", { className: "submit", type: "submit", value: "Send Request", onClick: addMovie })
     );
 }
 
 export default Add;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2NvbXBvbmVudHMvQWRkLmpzIl0sIm5hbWVzIjpbIkFkZCJdLCJtYXBwaW5ncyI6IjtBQUNBLFNBQVNBLEdBQVQsR0FBZTtBQUNYLFdBQ0E7QUFBQTtBQUFBLFVBQUssV0FBWSxLQUFqQjtBQUNJO0FBQUE7QUFBQSxjQUFPLE9BQUksTUFBWDtBQUFBO0FBQUEsU0FESjtBQUVJLHVDQUFPLE1BQUssTUFBWixFQUFtQixJQUFHLE1BQXRCLEVBQTZCLE1BQUssTUFBbEMsRUFBeUMsbUJBQWtCLEdBQTNELEVBQStELFdBQVUsR0FBekUsRUFBNkUsTUFBSyxJQUFsRixHQUZKO0FBR0ksdUNBQU8sV0FBWSxRQUFuQixFQUE0QixNQUFLLFFBQWpDLEVBQTBDLE9BQU0sY0FBaEQ7QUFISixLQURBO0FBT0g7O0FBRUQsZUFBZUEsR0FBZiIsImZpbGUiOiJBZGQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJcbmZ1bmN0aW9uIEFkZCgpIHtcbiAgICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lID0gJ2FkZCc+XG4gICAgICAgIDxsYWJlbCBmb3I9XCJuYW1lXCI+QWRkIGEgbW92aWU8L2xhYmVsPlxuICAgICAgICA8aW5wdXQgdHlwZT1cInRleHRcIiBpZD1cIm5hbWVcIiBuYW1lPVwibmFtZVwiIHJlcXVpcmVkbWlubGVuZ3RoPVwiNFwiIG1heGxlbmd0aD1cIjhcIiBzaXplPVwiMTBcIiAvPlxuICAgICAgICA8aW5wdXQgY2xhc3NOYW1lID0gXCJzdWJtaXRcIiB0eXBlPVwic3VibWl0XCIgdmFsdWU9XCJTZW5kIFJlcXVlc3RcIiAvPlxuICAgIDwvZGl2PlxuICAgIClcbn1cblxuZXhwb3J0IGRlZmF1bHQgQWRkOyJdfQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2NvbXBvbmVudHMvQWRkLmpzIl0sIm5hbWVzIjpbIkFkZCIsImFkZE1vdmllIiwidHlwZU1vdmllIiwiZSJdLCJtYXBwaW5ncyI6IjtBQUNBLFNBQVNBLEdBQVQsQ0FBYSxFQUFDQyxRQUFELEVBQVVDLFNBQVYsRUFBYixFQUFtQztBQUMvQixXQUNBO0FBQUE7QUFBQSxVQUFLLFdBQVksS0FBakI7QUFDSTtBQUFBO0FBQUEsY0FBTyxPQUFJLE1BQVg7QUFBQTtBQUFBLFNBREo7QUFFSSx1Q0FBTyxNQUFLLE1BQVosRUFBbUIsSUFBRyxNQUF0QixFQUE2QixNQUFLLE1BQWxDLEVBQXlDLG1CQUFrQixHQUEzRCxFQUErRCxXQUFVLEdBQXpFLEVBQTZFLE1BQUssSUFBbEYsRUFBdUYsVUFBWUMsS0FBSTtBQUFDRCwwQkFBVUMsQ0FBVjtBQUFhLGFBQXJILEdBRko7QUFHSSx1Q0FBTyxXQUFZLFFBQW5CLEVBQTRCLE1BQUssUUFBakMsRUFBMEMsT0FBTSxjQUFoRCxFQUErRCxTQUFXRixRQUExRTtBQUhKLEtBREE7QUFPSDs7QUFFRCxlQUFlRCxHQUFmIiwiZmlsZSI6IkFkZC5qcyIsInNvdXJjZXNDb250ZW50IjpbIlxuZnVuY3Rpb24gQWRkKHthZGRNb3ZpZSx0eXBlTW92aWV9KSB7XG4gICAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZSA9ICdhZGQnPlxuICAgICAgICA8bGFiZWwgZm9yPVwibmFtZVwiPkFkZCBhIG1vdmllPC9sYWJlbD5cbiAgICAgICAgPGlucHV0IHR5cGU9XCJ0ZXh0XCIgaWQ9XCJuYW1lXCIgbmFtZT1cIm5hbWVcIiByZXF1aXJlZG1pbmxlbmd0aD1cIjRcIiBtYXhsZW5ndGg9XCI4XCIgc2l6ZT1cIjEwXCIgb25DaGFuZ2UgPSB7ZT0+IHt0eXBlTW92aWUoZSl9fS8+XG4gICAgICAgIDxpbnB1dCBjbGFzc05hbWUgPSBcInN1Ym1pdFwiIHR5cGU9XCJzdWJtaXRcIiB2YWx1ZT1cIlNlbmQgUmVxdWVzdFwiIG9uQ2xpY2sgPSB7YWRkTW92aWV9IC8+XG4gICAgPC9kaXY+XG4gICAgKVxufVxuXG5leHBvcnQgZGVmYXVsdCBBZGQ7Il19

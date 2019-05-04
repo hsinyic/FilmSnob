@@ -11,6 +11,7 @@ body {
   
 .movie-list-entry {
     font-size: 16px;
+    font: Gugi;
     padding: 8px;
     color: white;
 
@@ -21,6 +22,7 @@ body {
     padding: 8px;
     color: white;
     border: 3px
+    font: Gugi;
 
 }
 
@@ -29,5 +31,6 @@ body {
     padding: 8px;
     color: white;
     border: 3px
+    font: Gugi;
 
 }

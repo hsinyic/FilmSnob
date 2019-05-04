@@ -8,34 +8,65 @@ class MovieList extends React.Component {
       this.state = {  
         movieDataBase : this.props.exampleMovieList,
         filteredMovies : this.props.exampleMovieList,
-        searchStr : "*"
+        searchStr : "",
+        addMovieStr: ""
       }
       this.updateSearchStr = this.updateSearchStr.bind(this);
       this.updatefilteredMovies = this.updatefilteredMovies.bind(this);
       this.searchMovies = this.searchMovies.bind(this);
+      this.addMovie = this.addMovie.bind(this);
+      this.typeMovie = this.typeMovie.bind(this);
     }
+
+
+  
 
     updateSearchStr(e){
       // console.log(e.target.value);
       this.setState({
         searchStr: e.target.value,
       })
-      console.log(this.state.searchStr);
-      // this.searchMovies(this.state.searchStr);
     }
     updatefilteredMovies(newList){
+      event.preventDefault();
       this.setState({
         filteredMovies: newList,
       })
     }
 
     searchMovies(q){
-      console.log(q);
-      console.log(this.state.movieDataBase);
+      console.log('searching')
+      event.preventDefault();
+      console.log('query',q);
+      console.log('existing database', this.state.movieDataBase);
+
       let filteredM = this.state.movieDataBase.filter(i=> i.title.includes(q));
-      console.log(filteredM);
+      console.log('after filtering',filteredM);
       this.updatefilteredMovies(filteredM);
     }
+
+
+
+    addMovie(e){
+      event.preventDefault();
+      console.log('now adding', this.state.addMovieStr);
+      var p =  new Promise((resolve, reject)=>{
+        this.setState({
+            movieDataBase: this.state.movieDataBase.concat([{title : this.state.addMovieStr}])
+          });
+        resolve();
+      }).then( ()=>{
+          this.searchMovies(this.state.searchStr);
+        }
+      )
+    }
+
+    typeMovie(e){
+      this.setState({
+        addMovieStr: e.target.value,
+      })
+    }
+
 
     render() {
       return (
@@ -43,8 +74,9 @@ class MovieList extends React.Component {
         <div>
         <Movies filteredMovies = {this.state.filteredMovies}/>
         </div>
-        <Search updateSearchStr = {this.updateSearchStr} updatefilteredMovies ={this.updatefilteredMovies} searchMovies={this.searchMovies} />
-        <Add />
+        <Search updateSearchStr = {this.updateSearchStr} updatefilteredMovies ={this.updatefilteredMovies} 
+        searchMovies={this.searchMovies} />
+        <Add typeMovie = {this.typeMovie} addMovie = {this.addMovie}/>
         </div>
       )
     }
