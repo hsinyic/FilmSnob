@@ -6,8 +6,3 @@ ReactDOM.render(<MovieList exampleMovieList = {exampleMovieList}/>,
     document.getElementById('list')
 );
   
-// ReactDOM.render(
-//   <h1>Hello, world!</h1>,
-//   document.getElementById('list')
-// );
-
