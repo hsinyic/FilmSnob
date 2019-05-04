@@ -1,12 +1,16 @@
-// import exampleMovieList from '../data/exampleVideoData.js'';
-// import MovieList from './components/MovieList.js';
+import exampleMovieList from './data/exampleData.js';
 
-// ReactDOM.render(<MovieList data = {exampleMovieList}/>,
-//     document.getElementById('list')
-// );
-  
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('list')
+
+
+import MovieList from './components/MovieList.js';
+// import searchYouTube from "./lib/searchYouTube.js";
+
+ReactDOM.render(<MovieList exampleMovieList = {exampleMovieList}/>,
+    document.getElementById('list')
 );
+  
+// ReactDOM.render(
+//   <h1>Hello, world!</h1>,
+//   document.getElementById('list')
+// );
 
