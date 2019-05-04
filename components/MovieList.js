@@ -18,11 +18,7 @@ class MovieList extends React.Component {
       this.typeMovie = this.typeMovie.bind(this);
     }
 
-
-  
-
     updateSearchStr(e){
-      // console.log(e.target.value);
       this.setState({
         searchStr: e.target.value,
       })
@@ -35,21 +31,12 @@ class MovieList extends React.Component {
     }
 
     searchMovies(q){
-      console.log('searching')
       event.preventDefault();
-      console.log('query',q);
-      console.log('existing database', this.state.movieDataBase);
-
-      let filteredM = this.state.movieDataBase.filter(i=> i.title.includes(q));
-      console.log('after filtering',filteredM);
-      this.updatefilteredMovies(filteredM);
+      this.updatefilteredMovies(this.state.movieDataBase.filter(i=> i.title.includes(q)));
     }
-
-
 
     addMovie(e){
       event.preventDefault();
-      console.log('now adding', this.state.addMovieStr);
       var p =  new Promise((resolve, reject)=>{
         this.setState({
             movieDataBase: this.state.movieDataBase.concat([{title : this.state.addMovieStr}])
@@ -66,7 +53,6 @@ class MovieList extends React.Component {
         addMovieStr: e.target.value,
       })
     }
-
 
     render() {
       return (
