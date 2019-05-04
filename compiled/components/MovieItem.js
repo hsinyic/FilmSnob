@@ -1,0 +1,5 @@
+function MovieItem({ key, itemContent }) {
+  return;
+  // return <h3> key, itemContent</h3>
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2NvbXBvbmVudHMvTW92aWVJdGVtLmpzIl0sIm5hbWVzIjpbIk1vdmllSXRlbSIsImtleSIsIml0ZW1Db250ZW50Il0sIm1hcHBpbmdzIjoiQUFBQSxTQUFTQSxTQUFULENBQW1CLEVBQUNDLEdBQUQsRUFBTUMsV0FBTixFQUFuQixFQUF1QztBQUN0QztBQUNHO0FBQ0giLCJmaWxlIjoiTW92aWVJdGVtLmpzIiwic291cmNlc0NvbnRlbnQiOlsiZnVuY3Rpb24gTW92aWVJdGVtKHtrZXksIGl0ZW1Db250ZW50fSkge1xuXHRyZXR1cm47XG4gICAgLy8gcmV0dXJuIDxoMz4ga2V5LCBpdGVtQ29udGVudDwvaDM+XG59XG5cbiJdfQ==

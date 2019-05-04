@@ -1,7 +1,5 @@
 function MovieItem({key, itemContent}) {
-    return (
-        < >
-    )
-
+	return;
+    // return <h3> key, itemContent</h3>
 }
 
