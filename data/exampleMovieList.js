@@ -1,4 +1,4 @@
-var exampleMovieList = [
+åvar exampleMovieList = [
     {title: 'Mean Girls'},
     {title: 'Hackers'},
     {title: 'The Grey'},
