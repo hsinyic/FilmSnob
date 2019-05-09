@@ -1,11 +1,27 @@
-function MovieItem({key, itemContent}) {
-	return (
-    <div className = 'movie-list-entry'>
-        <h3>{itemContent.title}</h3>
-    </div>
-    )
-    // return <h3> key, itemContent</h3>
+function MovieItem({key, itemContent, watchedToggle}) {
+    if (itemContent.watched){
+        return (
+            <div className = 'movie-list-entry'>
+                <h3>{itemContent.title} 
+                    <button className="alreadyWatched" type="button" onClick={(e)=> {watchedToggle(e, itemContent);}} >
+                        watched
+                    </button>
+                </h3>
+            </div>
+            )
+    } else {
+        return (
+            <div className = 'movie-list-entry'>
+                <h3>{itemContent.title} 
+                    <button className="watchToggleButton" type="button" onClick={(e)=> {watchedToggle(e, itemContent);}} >
+                        watch me!
+                    </button>
+                </h3>
+            </div>
+            )      
+    }
+
 }
-// toggle on and off 
 export default MovieItem;
+
 
