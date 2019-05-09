@@ -5,6 +5,13 @@ import Add from './Add.js';
 class MovieList extends React.Component {
     constructor(props) {
       super(props);
+      var initialData = this.props.exampleMovieList.map(i=> {
+        i.show = true;
+        i.watched = false;
+        i.searched = true;
+        // i.show = i.watched*i.searched; 
+        return i;
+      })
       this.state = {  
         movieDataBase : this.props.exampleMovieList,
         filteredMovies : this.props.exampleMovieList,
@@ -25,9 +32,8 @@ class MovieList extends React.Component {
         searchStr: e.target.value,
       })
     }
-    
+
     updatefilteredMovies(newList){
-      // default behavior of the button itself. Special HTML // 
       this.setState({
         filteredMovies: newList,
       })
@@ -35,7 +41,6 @@ class MovieList extends React.Component {
 
     searchMovies(q){
       return new Promise((resolve, reject)=>{
-        console.log('q', q)
         var q = this.state.searchStr;
         resolve(q);
       }).then( (q)=>{
@@ -48,8 +53,8 @@ class MovieList extends React.Component {
       this.setState({
         watchedList:  this.state.watchedList.concat({title:movie})
       })
-
     }
+
     addMovie(e){
       e.preventDefault(); 
       // way I  
