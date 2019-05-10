@@ -1,6 +1,7 @@
 import Movies from './Movies.js';
 import Search from './Search.js';
 import Add from './Add.js';
+import searchMovieDB from '../searchMovieDB.js'
 
 class MovieList extends React.Component {
   constructor(props) {
@@ -45,19 +46,20 @@ class MovieList extends React.Component {
       currentDB: m.filter(i => i.show),
     })
   }
-  searchMovies(q) {
-    return new Promise((resolve, reject) => {
-      var q = this.state.searchStr;
-      resolve(q);
-    }).then((q) => {
-      var m = this.state.movieDataBase.map((i) => {
-        i.filter = i.title.includes(q)
-        return i;
-      })
-      this.setState({ movieDataBase: m })
-      this.updateDB()
-    }
-    )
+  searchMovies() {
+    searchMovieDB(this.state.searchStr);
+    // return new Promise((resolve, reject) => {
+    //   var q = this.state.searchStr;
+    //   resolve(q);
+    // }).then((q) => {
+    //   var m = this.state.movieDataBase.map((i) => {
+    //     i.filter = i.title.includes(q)
+    //     return i;
+    //   })
+    //   this.setState({ movieDataBase: m })
+    //   this.updateDB()
+    // }
+    // )
   }
 
   watchedToggle(e, movie) {
@@ -118,7 +120,6 @@ class MovieList extends React.Component {
     // } else if (e.target.id==='new'){
     //   this.setState({showWatched : false, activateWatched:true}, ()=> {this.updateDB()});
     // }
-
   }
   render() {
     return (
