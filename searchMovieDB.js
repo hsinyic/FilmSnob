@@ -10,17 +10,14 @@ function searchMovieDB(q){
     fetch(qstr, option)
     .then(function (response) {
         var res = response.json(); 
-        console.log(res);
         return res;
     })
     .then(i=>{
-        var res = JSON.stringify(i)
-        console.log(typeof i)
-        console.log();
+        var res = JSON.stringify(i);
         return i.results;
     })
     .then(res=>{
-        console.log(res)
+        console.log(res);
     })
     .catch(e => { throw e });
 }

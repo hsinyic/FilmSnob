@@ -47,19 +47,19 @@ class MovieList extends React.Component {
     })
   }
   searchMovies() {
-    searchMovieDB(this.state.searchStr);
-    // return new Promise((resolve, reject) => {
-    //   var q = this.state.searchStr;
-    //   resolve(q);
-    // }).then((q) => {
-    //   var m = this.state.movieDataBase.map((i) => {
-    //     i.filter = i.title.includes(q)
-    //     return i;
-    //   })
-    //   this.setState({ movieDataBase: m })
-    //   this.updateDB()
-    // }
-    // )
+    // searchMovieDB(this.state.searchStr);
+    return new Promise((resolve, reject) => {
+      var q = this.state.searchStr;
+      resolve(q);
+    }).then((q) => {
+      var m = this.state.movieDataBase.map((i) => {
+        i.filter = i.title.includes(q)
+        return i;
+      })
+      this.setState({ movieDataBase: m })
+      this.updateDB()
+    }
+    )
   }
 
   watchedToggle(e, movie) {
@@ -113,27 +113,17 @@ class MovieList extends React.Component {
       case 'reset':
         this.setState({ showWatched: false, activateWatched: false }, () => { this.updateDB() })
         return;
-
-
     }
-    // if(e.target.id==='watched'){
-    // } else if (e.target.id==='new'){
-    //   this.setState({showWatched : false, activateWatched:true}, ()=> {this.updateDB()});
-    // }
   }
   render() {
+    const buttons = ['watched', 'new', 'reset'].map( (val, idx) => (
+      <button key={idx.toString()} className='watchToggleButton' id={val} onClick={this.viewWatch}>{val}</button>
+    ))
+    console.log(buttons);
     return (
       <div className="movie-list">
         <div>
-          <button className='watchToggleButton' id='watched' onClick={this.viewWatch}>
-            rewatch!
-          </button>
-          <button className='watchToggleButton' id='new' onClick={this.viewWatch}>
-            new!
-          </button>
-          <button className='watchToggleButton' id='reset' onClick={this.viewWatch}>
-            reset toggle
-          </button>
+          {buttons}
         </div>
         <div>
           <Movies currentDB={this.state.currentDB} watchedToggle={this.watchedToggle} />
