@@ -13,7 +13,7 @@ function searchMovieDB(q){
         return res;
     })
     .then(i=>{
-        var res = JSON.stringify(i);
+        // var res = JSON.stringify(i);
         return i.results;
     })
     .then(res=>{
@@ -24,3 +24,5 @@ function searchMovieDB(q){
 
 
 export default searchMovieDB;
+
+
