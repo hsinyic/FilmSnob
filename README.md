@@ -2,5 +2,4 @@
 Front end development for movie recommendation and listing web app 
 
 
-Tech stack 
-ReactJS, jQuery, 
+Tech stack: ReactJS, jQuery  
